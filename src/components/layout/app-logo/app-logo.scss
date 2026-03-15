@@ -1,0 +1,43 @@
+.app-header {
+    &__logo-container {
+        padding-inline-start: 1.2rem;
+        padding-inline-end: 2rem;
+        border-inline-end: 1px solid rgba(255, 255, 255, 0.1);
+        height: 3.2rem;
+        display: flex;
+        align-items: center;
+
+        .brand-logo-img {
+            height: 2.4rem;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.4));
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+.profithub-logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    text-transform: uppercase;
+
+    &__text-profit {
+        color: #ffffff;
+        text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+    }
+
+    &__text-hub {
+        color: #22d3ee;
+        text-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+}

@@ -1,0 +1,184 @@
+.copy-trader {
+    height: 100%;
+    width: 100%;
+    color: var(--text-general);
+    background: transparent;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    font-family: 'Inter', system-ui, sans-serif;
+
+    &__hero {
+        padding: 3rem 2rem;
+        background: linear-gradient(135deg, rgba(145, 68, 213, 0.1), rgba(162, 145, 255, 0.05));
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        margin-bottom: 2rem;
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+
+            h1 {
+                font-size: 3rem;
+                font-weight: 800;
+                margin: 0 0 0.5rem 0;
+                letter-spacing: -0.05rem;
+
+                span {
+                    font-size: 1.2rem;
+                    padding: 0.2rem 0.8rem;
+                    background: #9144d5;
+                    border-radius: 2rem;
+                    vertical-align: middle;
+                    margin-left: 1rem;
+                    font-weight: 900;
+                    text-transform: uppercase;
+                    box-shadow: 0 0 20px rgba(145, 68, 213, 0.4);
+                }
+            }
+
+            p {
+                font-size: 1.4rem;
+                color: var(--text-less-prominent);
+                margin: 0;
+            }
+        }
+    }
+
+    &__sections {
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem 4rem;
+        width: 100%;
+
+        @media (max-width: 1100px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__aside {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__monitoring {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 1.6rem;
+        padding: 2rem;
+        height: fit-content;
+
+        .monitoring-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+
+            h3 {
+                font-size: 1.4rem;
+                font-weight: 700;
+                margin: 0;
+                text-transform: uppercase;
+                letter-spacing: 0.1rem;
+            }
+
+            .live-indicator {
+                display: flex;
+                align-items: center;
+                gap: 0.6rem;
+                font-size: 1rem;
+                font-weight: 800;
+                color: #22c55e;
+                background: rgba(34, 197, 94, 0.1);
+                padding: 0.3rem 0.8rem;
+                border-radius: 2rem;
+
+                .dot {
+                    width: 8px;
+                    height: 8px;
+                    background: #22c55e;
+                    border-radius: 50%;
+                    box-shadow: 0 0 10px #22c55e;
+                    animation: blink 2s infinite;
+                }
+            }
+        }
+
+        .table-container {
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .copy-table {
+            width: 100%;
+            border-collapse: collapse;
+
+            th {
+                background: rgba(255, 255, 255, 0.05);
+                text-align: left;
+                padding: 1rem;
+                color: var(--text-less-prominent);
+                font-size: 1rem;
+                text-transform: uppercase;
+                letter-spacing: 0.05rem;
+            }
+
+            td {
+                padding: 1.2rem 1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+                font-size: 1.2rem;
+
+                &.no-data {
+                    padding: 4rem 1rem;
+                    text-align: center;
+
+                    .empty-state {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 1rem;
+                        opacity: 0.5;
+
+                        .empty-icon {
+                            font-size: 3rem;
+                        }
+
+                        p {
+                            margin: 0;
+                            font-weight: 600;
+                        }
+
+                        span {
+                            font-size: 1.1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes blink {
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}

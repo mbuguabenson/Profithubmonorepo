@@ -1,0 +1,55 @@
+import { website_name } from '@/utils/site-config';
+import { domain_app_ids, getAppId } from '../config/config';
+import { CookieStorage, isStorageSupported, LocalStore } from '../storage/storage';
+import { urlForCurrentDomain } from '../url';
+
+export const redirectToLogin = (is_logged_in: boolean, language: string, has_params = true, redirect_delay = 0) => {
+    if (!is_logged_in && isStorageSupported(sessionStorage)) {
+        const l = window.location;
+        const redirect_url = has_params ? window.location.href : `${l.protocol}//${l.host}${l.pathname}`;
+        sessionStorage.setItem('redirect_url', redirect_url);
+        setTimeout(() => {
+            const new_href = loginUrl({ language });
+            window.location.href = new_href;
+        }, redirect_delay);
+    }
+};
+
+export const redirectToSignUp = () => {
+    window.open('https://track.deriv.com/_1mHiO0UpCX6NhxmBqQyZL2Nd7ZgqdRLk/1/');
+};
+
+type TLoginUrl = {
+    language: string;
+};
+
+export const loginUrl = ({ language }: TLoginUrl) => {
+    const server_url = LocalStore.get('config.server_url');
+    const signup_device_cookie = new CookieStorage('signup_device');
+    const signup_device = signup_device_cookie.get('signup_device');
+    const date_first_contact_cookie = new CookieStorage('date_first_contact');
+    const date_first_contact = date_first_contact_cookie.get('date_first_contact');
+    const marketing_queries = `${signup_device ? `&signup_device=${signup_device}` : ''}${
+        date_first_contact ? `&date_first_contact=${date_first_contact}` : ''
+    }`;
+    const getOAuthUrl = () => {
+        const lang = language || window.localStorage.getItem('lang') || 'EN';
+        const app_id = getAppId();
+
+        // Use the simple URL format as per documentation
+        const url = `https://oauth.deriv.com/oauth2/authorize?app_id=${app_id}&l=${lang}&brand=deriv`;
+
+        console.log('[Login] Redirecting to:', url);
+        return url;
+    };
+
+    if (server_url && /qa/.test(server_url)) {
+        const redirect_param = `&redirect_uri=${window.location.protocol}//${window.location.host}${window.location.pathname}`;
+        return `https://${server_url}/oauth2/authorize?app_id=${getAppId()}&l=${language}${marketing_queries}&brand=${website_name.toLowerCase()}${redirect_param}`;
+    }
+
+    if (getAppId() === domain_app_ids[window.location.hostname as keyof typeof domain_app_ids]) {
+        return getOAuthUrl();
+    }
+    return urlForCurrentDomain(getOAuthUrl());
+};

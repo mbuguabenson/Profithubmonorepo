@@ -1,0 +1,205 @@
+@use 'components/shared/styles/constants' as *;
+@use 'components/shared/styles/mixins' as *;
+
+/** @define barspinner */
+.initial-loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    &--fullscreen {
+        position: fixed;
+        inset: 0;
+        background: var(--general-main-1);
+        z-index: 9999;
+    }
+
+    .circular-loader-wrapper {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 2rem;
+    }
+
+    .pl {
+        width: 100%;
+        height: 100%;
+    }
+
+    .pl__ring {
+        animation: ringA 2s linear infinite;
+        stroke-width: 20;
+    }
+
+    .pl__ring--a {
+        stroke: #ff7d00;
+    }
+    .pl__ring--b {
+        animation-name: ringB;
+        stroke: #15616d;
+    }
+    .pl__ring--c {
+        animation-name: ringC;
+        stroke: #ffecd1;
+    }
+    .pl__ring--d {
+        animation-name: ringD;
+        stroke: #78290f;
+    }
+}
+
+@keyframes ringA {
+    from,
+    4% {
+        stroke-dasharray: 0 660;
+        stroke-width: 20;
+        stroke-dashoffset: -330;
+    }
+    12% {
+        stroke-dasharray: 60 600;
+        stroke-width: 30;
+        stroke-dashoffset: -335;
+    }
+    32% {
+        stroke-dasharray: 60 600;
+        stroke-width: 30;
+        stroke-dashoffset: -595;
+    }
+    40%,
+    54% {
+        stroke-dasharray: 0 660;
+        stroke-width: 20;
+        stroke-dashoffset: -660;
+    }
+    62% {
+        stroke-dasharray: 60 600;
+        stroke-width: 30;
+        stroke-dashoffset: -665;
+    }
+    82% {
+        stroke-dasharray: 60 600;
+        stroke-width: 30;
+        stroke-dashoffset: -925;
+    }
+    90%,
+    100% {
+        stroke-dasharray: 0 660;
+        stroke-width: 20;
+        stroke-dashoffset: -990;
+    }
+}
+
+@keyframes ringB {
+    from,
+    12% {
+        stroke-dasharray: 0 570;
+        stroke-width: 20;
+        stroke-dashoffset: -285;
+    }
+    20% {
+        stroke-dasharray: 50 520;
+        stroke-width: 30;
+        stroke-dashoffset: -290;
+    }
+    40% {
+        stroke-dasharray: 50 520;
+        stroke-width: 30;
+        stroke-dashoffset: -515;
+    }
+    48%,
+    62% {
+        stroke-dasharray: 0 570;
+        stroke-width: 20;
+        stroke-dashoffset: -570;
+    }
+    70% {
+        stroke-dasharray: 50 520;
+        stroke-width: 30;
+        stroke-dashoffset: -575;
+    }
+    90% {
+        stroke-dasharray: 50 520;
+        stroke-width: 30;
+        stroke-dashoffset: -800;
+    }
+    98%,
+    100% {
+        stroke-dasharray: 0 570;
+        stroke-width: 20;
+        stroke-dashoffset: -855;
+    }
+}
+
+@keyframes ringC {
+    from,
+    20% {
+        stroke-dasharray: 0 470;
+        stroke-width: 20;
+        stroke-dashoffset: -235;
+    }
+    28% {
+        stroke-dasharray: 40 430;
+        stroke-width: 30;
+        stroke-dashoffset: -240;
+    }
+    48% {
+        stroke-dasharray: 40 430;
+        stroke-width: 30;
+        stroke-dashoffset: -435;
+    }
+    56%,
+    70% {
+        stroke-dasharray: 0 470;
+        stroke-width: 20;
+        stroke-dashoffset: -470;
+    }
+    78% {
+        stroke-dasharray: 40 430;
+        stroke-width: 30;
+        stroke-dashoffset: -475;
+    }
+    98%,
+    100% {
+        stroke-dasharray: 0 470;
+        stroke-width: 20;
+        stroke-dashoffset: -470;
+    }
+}
+
+@keyframes ringD {
+    from,
+    28% {
+        stroke-dasharray: 0 380;
+        stroke-width: 20;
+        stroke-dashoffset: -190;
+    }
+    36% {
+        stroke-dasharray: 30 350;
+        stroke-width: 30;
+        stroke-dashoffset: -195;
+    }
+    56% {
+        stroke-dasharray: 30 350;
+        stroke-width: 30;
+        stroke-dashoffset: -355;
+    }
+    64%,
+    78% {
+        stroke-dasharray: 0 380;
+        stroke-width: 20;
+        stroke-dashoffset: -380;
+    }
+    86% {
+        stroke-dasharray: 30 350;
+        stroke-width: 30;
+        stroke-dashoffset: -385;
+    }
+    98%,
+    100% {
+        stroke-dasharray: 0 380;
+        stroke-width: 20;
+        stroke-dashoffset: -380;
+    }
+}
