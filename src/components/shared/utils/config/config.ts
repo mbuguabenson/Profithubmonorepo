@@ -1,15 +1,15 @@
 import { isStaging } from '../url/helpers';
 
 export const APP_IDS = {
-    LOCALHOST: 121856,
-    TMP_STAGING: 121856,
-    STAGING: 121856,
-    STAGING_BE: 121856,
-    STAGING_ME: 121856,
-    PRODUCTION: 121856,
-    PRODUCTION_BE: 121856,
-    PRODUCTION_ME: 121856,
-    VERCEL: 121856,
+    LOCALHOST: 113555,
+    TMP_STAGING: 113555,
+    STAGING: 113555,
+    STAGING_BE: 113555,
+    STAGING_ME: 113555,
+    PRODUCTION: 113555,
+    PRODUCTION_BE: 113555,
+    PRODUCTION_ME: 113555,
+    VERCEL: 113555,
 };
 
 export const livechat_license_id = 12049137;
@@ -24,7 +24,7 @@ export const domain_app_ids = {
     'dbot.deriv.be': APP_IDS.PRODUCTION_BE,
     'dbot.deriv.me': APP_IDS.PRODUCTION_ME,
     '22-dec.vercel.app': APP_IDS.VERCEL,
-    'profithubtool.vercel.app': 121856,
+    'profithubtool.vercel.app': 113555,
 };
 
 export const getCurrentProductionDomain = () =>

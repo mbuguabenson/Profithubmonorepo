@@ -39,7 +39,7 @@ type APIContextData = {
  */
 const getWebSocketURL = (endpoint: string) => {
     const local_storage_app_id = window.localStorage.getItem('config.app_id');
-    const appId = local_storage_app_id || process.env.VITE_APP_ID || '121856';
+    const appId = local_storage_app_id || process.env.VITE_APP_ID || '113555';
     return `wss://${endpoint}/websockets/v3?app_id=${appId}&brand=${getBrandName().toLowerCase()}`;
 };
 

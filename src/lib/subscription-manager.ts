@@ -41,7 +41,7 @@ export class SubscriptionManager {
 
         // Build the socket URL
         const server = (getSocketURL() || 'ws.derivws.com').replace(/[^a-zA-Z0-9.]/g, '');
-        const appId = (getAppId() || '121856').toString().replace(/[^a-zA-Z0-9]/g, '');
+        const appId = (getAppId() || '113555').toString().replace(/[^a-zA-Z0-9]/g, '');
         const lang = (getInitialLanguage() || 'EN').toUpperCase();
         const brand = (website_name || 'deriv').toLowerCase();
         const url = `wss://${server}/websockets/v3?app_id=${appId}&l=${lang}&brand=${brand}`;

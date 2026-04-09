@@ -82,7 +82,7 @@ const getWebSocketURL = () => {
     const endpoint = local_storage_server_url || 'ws.derivws.com';
 
     const local_storage_app_id = window.localStorage.getItem('config.app_id');
-    const appId = local_storage_app_id || '121856';
+    const appId = local_storage_app_id || '113555';
 
     const brand = getBrandName().toLowerCase();
     const wss_url = `wss://${endpoint}/websockets/v3?app_id=${appId}&brand=${brand}`;
